@@ -1,35 +1,40 @@
 #ifndef VEHICLE_H
 #define VEHICLE_H
 
-#include <string>
 #include <iostream>
+#include <string>
+using namespace std;
 
 class Vehicle {
 private:
-    std::string brand;
+    string brand;
     int year;
     static int totalVehicles;
 
 public:
-    Vehicle(const std::string& b, int y) : brand(b), year(y) {
-        totalVehicles++;
+    // Constructor
+    Vehicle(string b, int y) : brand(b), year(y) {
+        totalVehicles++;  // Increment the total vehicles count
     }
 
-    void displayInfo() {
-        std::cout << "Brand: " << brand << std::endl;
-        std::cout << "Year: " << year << std::endl;
+    // Method to display information
+    virtual void displayInfo() const {
+        cout << "Brand: " << brand << endl;
+        cout << "Year: " << year << endl;
     }
 
+    // Getter for totalVehicles
     static int getTotal() {
         return totalVehicles;
     }
 
+    // Destructor
     virtual ~Vehicle() {
-        std::cout << "Vehicle is destroyed" << std::endl;
+        cout << "Vehicle is destroyed" << endl;
     }
 };
 
-// Initialize static member
+// Initialize the static variable
 int Vehicle::totalVehicles = 0;
 
 #endif

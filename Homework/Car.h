@@ -2,22 +2,24 @@
 #define CAR_H
 
 #include "Vehicle.h"
-#include <iostream>
 
 class Car : public Vehicle {
 private:
     int doors;
 
 public:
-    Car(const std::string& b, int y, int d) : Vehicle(b, y), doors(d) {}
+    // Constructor
+    Car(string b, int y, int d) : Vehicle(b, y), doors(d) {}
 
-    void displayInfo() override {
-        Vehicle::displayInfo();
-        std::cout << "Doors: " << doors << std::endl;
+    // Override displayInfo() to print Car-specific details
+    void displayInfo() const override {
+        Vehicle::displayInfo();  // Call the base class displayInfo()
+        cout << "Doors: " << doors << endl;
     }
 
+    // Destructor
     ~Car() override {
-        std::cout << "Car is destroyed" << std::endl;
+        cout << "Car is destroyed" << endl;
     }
 };
 
