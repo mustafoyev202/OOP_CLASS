@@ -6,19 +6,18 @@
 class ElectricCar : public Car {
 private:
     int batteryRange;
-
 public:
-    // Constructor
+    ElectricCar() : Car(), batteryRange(0) {}
     ElectricCar(string b, int y, int d, int br) : Car(b, y, d), batteryRange(br) {}
 
-    // Override displayInfo() to print ElectricCar-specific details
-    void displayInfo() const override {
-        Car::displayInfo();  // Call the base class displayInfo()
-        cout << "Battery Range: " << batteryRange << " km" << endl;
+    void displayInfo() {
+        cout << "Brand: " << brand
+             << "\nYear: " << year
+             << "\nDoors: " << doors
+             << "\nBattery Range: " << batteryRange << " km" << endl;
     }
 
-    // Destructor
-    ~ElectricCar() override {
+    ~ElectricCar() {
         cout << "Electric car is destroyed" << endl;
     }
 };

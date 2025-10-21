@@ -4,21 +4,19 @@
 #include "Vehicle.h"
 
 class Car : public Vehicle {
-private:
+protected:
     int doors;
-
 public:
-    // Constructor
+    Car() : Vehicle(), doors(0) {}
     Car(string b, int y, int d) : Vehicle(b, y), doors(d) {}
 
-    // Override displayInfo() to print Car-specific details
-    void displayInfo() const override {
-        Vehicle::displayInfo();  // Call the base class displayInfo()
-        cout << "Doors: " << doors << endl;
+    void displayInfo() {
+        cout << "Brand: " << brand
+             << "\nYear: " << year
+             << "\nDoors: " << doors << endl;
     }
 
-    // Destructor
-    ~Car() override {
+    ~Car() {
         cout << "Car is destroyed" << endl;
     }
 };
